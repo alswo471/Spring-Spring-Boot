@@ -1,0 +1,25 @@
+package spring.config;
+
+import org.springframework.context.annotation.Configuration;
+
+import models.member.ChangePasswordService;
+import models.member.*;
+import models.member.MemberRegisterService;
+
+@Configuration
+public class AppCtx {
+	public MemberDao memberDao() {
+		return new MemberDao();
+	}
+	
+	public MemberRegisterService memberRegisterService() {
+		return new MemberRegisterService(memberDao());
+	}
+	
+	public ChangePasswordService changePasswordService() {
+		ChangePasswordService changePasswordService = new ChangePasswordService();
+		changePasswordService.setMemberDao(memberDao());
+		
+		return changePasswordService;
+	}
+}

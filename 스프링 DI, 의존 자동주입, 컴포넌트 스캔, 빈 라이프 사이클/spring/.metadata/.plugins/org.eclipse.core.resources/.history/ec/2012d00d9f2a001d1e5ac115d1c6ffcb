@@ -1,0 +1,28 @@
+package models.member;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MemberListPrintService {
+	private MemberDao memberDao;
+	private MemberInfoPrintService infoPrintService;
+	
+	public void print() {
+		Map<String, MemberDto> members = memberDao.gets();
+		
+		for(MemberDto member : members.values()) {
+			infoPrintService.print(member.getMemId());
+		}
+	}
+	@Autowired
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+	@Autowired
+	public void setInfoPrintService(MemberInfoPrintService infoPrintService) {
+		this.infoPrintService = infoPrintService;
+	}
+}

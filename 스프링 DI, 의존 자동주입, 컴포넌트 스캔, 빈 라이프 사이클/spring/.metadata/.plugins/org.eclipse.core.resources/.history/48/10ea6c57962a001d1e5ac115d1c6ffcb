@@ -1,0 +1,17 @@
+package models.member;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class ChangePasswordService {
+
+	@Autowired
+	private MemberDao memberDao;
+	
+	public void change(MemberRequest request) {
+		MemberDto member = memberDao.get(request.getMemId());
+		member.setMemPw(request.getMemPw());
+		
+		memberDao.update(member);
+				
+	}
+}

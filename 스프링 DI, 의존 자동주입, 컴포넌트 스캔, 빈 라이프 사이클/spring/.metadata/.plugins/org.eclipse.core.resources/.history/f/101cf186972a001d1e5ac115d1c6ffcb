@@ -1,0 +1,31 @@
+package models.member;
+
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MemberInfoPrintService {
+
+	
+	private Optional<DateTimeFormatter> opt;
+
+	@Autowired
+	private MemberDao memberDao;
+
+	public void print(String memId) {
+		MemberDto member = memberDao.get(memId);
+		
+		if (opt.get() == null) {
+			System.out.println(member);
+		} else {
+			System.out.println(member);
+			String regDt = opt.get().format(member.getRegDt());
+			System.out.println(regDt);
+		}
+	}
+	
+}

@@ -1,0 +1,27 @@
+package models.member;
+
+import java.util.Map;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class MemberListPrintService {
+	private MemberDao memberDao;
+	private MemberInfoPrintService infoPrintService;
+	
+	public void print() {
+		Map<String, MemberDto> members = memberDao.gets();
+		
+		for(MemberDto member : members.values()) {
+			infoPrintService.print(member.getMemId());
+		}
+	}
+	
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+	
+	public void setInfoPrintService(MemberInfoPrintService infoPrintService) {
+		this.infoPrintService = infoPrintService;
+	}
+}

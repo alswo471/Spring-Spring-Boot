@@ -1,0 +1,25 @@
+package ch01;
+
+import models.member.*;
+import java.time.LocalDateTime;
+
+import assembler.Assembler;
+import models.member.MemberRequest;
+
+public class Main2 {
+	
+	public static void main(String[] args) {
+		Assembler assembler = new Assembler();
+		MemberRequest request = new MemberRequest(1, "유저지민재", "471", "지민재1", "01012347891", LocalDateTime.now()); 
+		
+		MemberRegisterService regSvc = assembler.getRegisterService();
+		regSvc.regist(request);
+		
+		
+		ChangePasswordService pwdSvc = assembler.getPasswordService();
+		request.setMemPw("5555");
+		pwdSvc.change(request);
+		System.out.println(assembler.getMemberDao().get(request.getMemId()));
+	}
+	
+}

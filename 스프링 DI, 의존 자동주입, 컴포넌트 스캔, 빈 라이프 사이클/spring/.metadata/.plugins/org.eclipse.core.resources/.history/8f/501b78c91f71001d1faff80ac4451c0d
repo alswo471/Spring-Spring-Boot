@@ -1,0 +1,10 @@
+package models.member;
+
+public class MemberPrinterService {
+	MemberDao memberDao;
+
+	public MemberPrinterService(MemberDao memberDao) {
+		this.memberDao = memberDao;
+		
+	}
+}

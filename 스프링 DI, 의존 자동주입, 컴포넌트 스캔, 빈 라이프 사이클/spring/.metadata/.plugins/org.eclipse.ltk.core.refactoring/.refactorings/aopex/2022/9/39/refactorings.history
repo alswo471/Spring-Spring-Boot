@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;aopex.RecCalcultor&apos; to &apos;RecCalculator&apos;&#x0D;&#x0A;- Original project: &apos;aopex&apos;&#x0D;&#x0A;- Original element: &apos;aopex.RecCalcultor&apos;&#x0D;&#x0A;- Renamed element: &apos;aopex.RecCalculator&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;RecCalcultor&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;aopex{RecCalcultor.java[RecCalcultor" matchStrategy="1" name="RecCalculator" qualified="false" references="true" similarDeclarations="false" stamp="1663492840723" textual="false" version="1.0"/>
+</session>

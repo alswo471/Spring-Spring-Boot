@@ -1,0 +1,17 @@
+package day01;
+
+import models.member.*;
+
+public class Assembler {
+	public MemberDao memberDao() {
+		return new MemberDao();
+	}
+
+	public MemberRegisterService regService() {
+		return new MemberRegisterService(memberDao());
+	}
+		public ChangePasswordService pwdService() {
+			return new ChangePasswordService(memberDao());
+	
+	}
+}

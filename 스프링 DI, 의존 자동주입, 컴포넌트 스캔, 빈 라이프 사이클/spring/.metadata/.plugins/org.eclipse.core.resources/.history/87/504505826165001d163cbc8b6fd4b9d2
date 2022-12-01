@@ -1,0 +1,12 @@
+package ch01;
+
+import java.time.LocalDateTime;
+
+import models.member.*;
+public class Main {
+	public static void main(String[] args) {
+		MemberRequest request = new MemberRequest(1, "유저지민재", "471", "지민재1", "01012347891", LocalDateTime.now()); 
+		MemberRegisterService service = new MemberRegisterService();
+		service.regist(request);
+	}
+}

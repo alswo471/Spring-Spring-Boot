@@ -1,0 +1,23 @@
+package main;
+
+import aopex.ExeTimeCalculator;
+import aopex.ImpeCalcultor;
+import aopex.RecCalculator;
+
+public class Main1 {
+
+	public static void main(String[] args) {
+		
+		ExeTimeCalculator cal1 = new ExeTimeCalculator(new ImpeCalcultor());
+		ExeTimeCalculator cla2 = new ExeTimeCalculator(new RecCalculator());
+		
+		
+//		ImpeCalcultor cal1 = new ImpeCalcultor();
+//		RecCalculator cal2 = new RecCalculator();
+//		
+	System.out.println(cal1.factorial(10));
+		System.out.println(cal2.factorial(10));
+
+	}
+
+}

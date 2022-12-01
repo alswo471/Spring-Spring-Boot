@@ -1,0 +1,28 @@
+package day01;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import models.member.ChangePasswordService;
+import models.member.MemberDao;
+import models.member.MemberRegisterService;
+
+@Configuration
+public class AppCtx2 {
+
+	@Bean
+	public MemberDao memberDao() {
+		return new MemberDao();
+	}
+	
+	@Bean
+	public MemberRegisterService regService() {
+		return new MemberRegisterService(memberDao());
+		
+	}
+	
+	@Bean
+	public ChangePasswordService pwdService() {
+		return new ChangePasswordService(memberDao());
+	}
+}

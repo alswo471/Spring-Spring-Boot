@@ -1,0 +1,14 @@
+package models.member;
+
+import java.time.LocalDateTime;
+
+public class MemberDto {
+ private long memNo;
+ private String memId;
+ private String memPw;
+ private String memNm;
+ private String email;
+ private String mobile;
+ private LocalDateTime regDt;
+ private LocalDateTime modDt;
+}

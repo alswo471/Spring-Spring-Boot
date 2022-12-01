@@ -1,0 +1,13 @@
+package day03;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppCtx {
+
+	public Client client() {
+		Client client = new Client();
+		client.setHost("이름");
+		return client;
+	}
+}

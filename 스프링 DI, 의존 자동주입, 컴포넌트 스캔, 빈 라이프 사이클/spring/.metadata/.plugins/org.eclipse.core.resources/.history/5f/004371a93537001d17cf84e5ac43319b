@@ -1,0 +1,17 @@
+package main;
+
+import aopex.ImpeCalcultor;
+import aopex.RecCalculator;
+
+public class Main1 {
+
+	public static void main(String[] args) {
+		ImpeCalcultor cal1 = new ImpeCalcultor();
+		RecCalculator cal2 = new RecCalculator();
+		
+		System.out.println(cal1.factorial(10));
+		System.out.println(cal2.factorial(10));
+
+	}
+
+}

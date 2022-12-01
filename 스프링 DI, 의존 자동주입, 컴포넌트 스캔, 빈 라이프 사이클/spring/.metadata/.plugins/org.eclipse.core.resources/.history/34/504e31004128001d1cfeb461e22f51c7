@@ -1,0 +1,20 @@
+package models.member;
+
+import java.util.Map;
+
+public class MemberListPrintService {
+	private MemberDao memberDao;
+	private MemberInfoPrintService infoPrintService;
+	
+	public void print() {
+		Map<String, MemberDto> members = memberDao.gets();
+	}
+	
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+	
+	public void setInfoPrintService(MemberInfoPrintService infoPrintService) {
+		this.infoPrintService = infoPrintService;
+	}
+}

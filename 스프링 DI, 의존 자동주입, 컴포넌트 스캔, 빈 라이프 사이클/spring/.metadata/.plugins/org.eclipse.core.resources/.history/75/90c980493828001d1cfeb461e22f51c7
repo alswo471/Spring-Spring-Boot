@@ -1,0 +1,6 @@
+package models.member;
+
+
+public class MemberRequest extends MemberDto {
+
+}

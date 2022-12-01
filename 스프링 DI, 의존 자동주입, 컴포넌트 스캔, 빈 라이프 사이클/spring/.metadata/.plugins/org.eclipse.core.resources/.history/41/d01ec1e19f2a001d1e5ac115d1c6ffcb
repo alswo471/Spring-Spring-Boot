@@ -1,0 +1,27 @@
+package models.member;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Component;
+
+@Component("memberDao2")
+public class MemberDao {
+ private Map<String, MemberDto> members = new HashMap();
+ 
+ public MemberDto get(String memId) {
+	 return members.get(memId);
+ }
+ 
+ public Map<String, MemberDto> gets(){
+	 return members;
+ }
+ 
+ public void register(MemberDto member) {
+	 members.put(member.getMemId(), member);
+ }
+ 
+ public void update(MemberDto member) {
+	 members.put(member.getMemId(), member);
+ }
+}

@@ -1,0 +1,24 @@
+package aopex;
+
+public class ImpeCalcultor  implements Calculator{
+
+	@Override
+	public long factorial(long num) {
+		// 4! -> 4 * 3 * 2 * 1 
+		long start = System.nanoTime();
+		try {
+			
+			long result = 1;
+			
+			for(long i = 1; i <= num; i++) {
+				result *= i;
+			}
+			return result;
+		} finally {
+			long end = System.nanoTime();
+			System.out.printf("걸린 시간 : %d%n", end - start );
+		}
+		
+	}
+
+}

@@ -1,0 +1,28 @@
+package day01;
+
+import java.time.LocalDateTime;
+
+import models.member.CacheMemberDao;
+import models.member.ChangePasswordService;
+import models.member.MemberDao;
+import models.member.MemberDto;
+import models.member.MemberRegisterService;
+import models.member.MemberRequest;
+
+public class Main2 {
+	public static void main(String[] args) {
+		MemberRequest request = new MemberRequest(1, "user01", "123456", "이름1", "이메일", "010-0000-0000",
+				LocalDateTime.now());
+
+		Assembler assembler = new Assembler();
+		
+		MemberRegisterService service = assembler.regService();
+		service.register(request);
+		
+		ChangePasswordService pwdService = assembler.pwdService();
+		
+		request.setMemPw("234567");
+		pwdService.change(request);
+		
+	}
+}

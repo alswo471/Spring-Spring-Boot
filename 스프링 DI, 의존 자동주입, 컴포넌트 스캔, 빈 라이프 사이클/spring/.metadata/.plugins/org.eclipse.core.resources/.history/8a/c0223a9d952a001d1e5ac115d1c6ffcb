@@ -1,0 +1,32 @@
+package models.member;
+
+import java.time.format.DateTimeFormatter;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
+
+public class MemberInfoPrintService {
+
+	
+	private DateTimeFormatter formatter;
+
+	@Autowired
+	private MemberDao memberDao;
+
+	public void print(String memId) {
+		MemberDto member = memberDao.get(memId);
+		
+		if (formatter == null) {
+			System.out.println(member);
+		} else {
+			System.out.println(member);
+			String regDt = formatter.format(member.getRegDt());
+			System.out.println(regDt);
+		}
+	}
+	
+	@Autowired
+	public void setFormatter(@Nullable DateTimeFormatter formatter) {
+		this.formatter = formatter;
+	}
+}

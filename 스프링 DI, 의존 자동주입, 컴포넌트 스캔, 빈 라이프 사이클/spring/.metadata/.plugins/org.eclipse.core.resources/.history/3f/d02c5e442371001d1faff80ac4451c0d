@@ -1,0 +1,38 @@
+ package ch02;
+ 
+ import java.time.LocalDateTime;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import models.member.ChangePasswordService;
+import models.member.MemberDao;
+import models.member.MemberPrintListService;
+import models.member.MemberRegisterService;
+import models.member.MemberRequest;
+import spring.config.*;
+
+public class MainForSpring {
+
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+		
+		MemberRequest request = new MemberRequest(1, "user01", "123456" , "사용자", "01034146188", LocalDateTime.now());
+		
+		
+		MemberRegisterService regSvc = ctx.getBean("memberRegisterService", MemberRegisterService.class);
+		regSvc.regist(request); 
+		
+		ChangePasswordService pwdSvc = ctx.getBean("changePasswordService", ChangePasswordService.class);
+		request.setMemPw("234567");
+		pwdSvc.change(request);
+		
+		MemberDao memberDao = ctx.getBean("memberDao", MemberDao.class);
+		System.out.println(memberDao.get(request.getMemId()));
+		
+		
+		
+		ctx.close();
+
+	}
+
+}

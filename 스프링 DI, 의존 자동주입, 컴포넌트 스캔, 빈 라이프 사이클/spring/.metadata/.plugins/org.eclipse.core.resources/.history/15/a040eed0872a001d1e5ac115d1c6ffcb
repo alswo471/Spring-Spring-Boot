@@ -1,0 +1,21 @@
+package models.member;
+
+import java.time.format.DateTimeFormatter;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class MemberInfoPrintService {
+	
+	@Autowired
+	private DateTimeFormatter formatter;
+	
+@Autowired
+private MemberDao memberDao;
+	
+	public void print(String memId) {
+		MemberDto member = memberDao.get(memId);
+		System.out.println(memId);
+		String regDt = formatter.format(member.getRegDt());
+		System.out.println(regDt);
+	}
+}

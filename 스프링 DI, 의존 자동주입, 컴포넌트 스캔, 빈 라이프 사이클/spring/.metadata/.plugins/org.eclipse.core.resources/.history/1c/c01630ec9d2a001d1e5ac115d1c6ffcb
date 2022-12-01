@@ -1,0 +1,28 @@
+package models.member;
+
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MemberRegisterService {
+	
+	@Autowired
+	private MemberDao memberDao;
+	
+	
+	public void register(MemberRequest request) {
+		
+		MemberDto member = memberDao.get(request.getMemId());
+		if (member != null) {
+			throw new RuntimeException("이미 가입된 회원입니다.");
+		}
+		
+		MemberDto newMember = new MemberDto(1, request.getMemId(), request.getMemPw(), request.getMemNm(), request.getEmail(), request.getMobile(), LocalDateTime.now());
+		memberDao.register(newMember);
+		
+		System.out.println(memberDao.get(newMember.getMemId()));
+		
+	}
+}

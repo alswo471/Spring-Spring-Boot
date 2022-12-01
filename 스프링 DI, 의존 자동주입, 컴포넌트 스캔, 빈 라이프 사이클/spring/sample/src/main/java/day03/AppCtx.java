@@ -1,0 +1,22 @@
+package day03;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppCtx {
+
+	@Bean
+	public Client client() {
+		Client client = new Client();
+		client.setHost("이름");
+		return client;
+	}
+	
+	@Bean(initMethod = "init", destroyMethod = "close")
+	public Client2 client2() {
+		Client2 client2 = new Client2();
+		client2.setHost("이름2");
+		return client2;
+	}
+}

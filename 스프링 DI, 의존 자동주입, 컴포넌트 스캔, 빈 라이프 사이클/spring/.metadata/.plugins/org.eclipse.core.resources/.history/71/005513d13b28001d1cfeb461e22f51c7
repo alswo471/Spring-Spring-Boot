@@ -1,0 +1,15 @@
+package day01;
+
+import models.member.MemberDao;
+import models.member.MemberRegisterService;
+import models.member.MemberRequest;
+
+public class Main2 {
+public static void main(String[] args) {
+	MemberRequest request = new MemberRequest(1, "user01", "", null, null, null, null, null)
+
+			MemberDao memberDao = new MemberDao();
+			MemberRegisterService service = new MemberRegisterService(memberDao);
+		service.register(request);
+}
+}

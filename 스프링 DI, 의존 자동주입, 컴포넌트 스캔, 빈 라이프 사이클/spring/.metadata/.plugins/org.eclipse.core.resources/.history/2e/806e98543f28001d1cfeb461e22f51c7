@@ -1,0 +1,23 @@
+package day01;
+
+import java.time.LocalDateTime;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import models.member.ChangePasswordService;
+import models.member.MemberRegisterService;
+import models.member.MemberRequest;
+
+public class MainForSpring {
+public static void main(String[] args) {
+	AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx2.class);
+	
+	MemberRequest request = new MemberRequest(1, "user01", "123456", "이름1", "이메일", "010-0000-0000",
+			LocalDateTime.now());
+	MemberRegisterService regService = ctx.getBean("regService", MemberRegisterService.class);
+	
+	ChangePasswordService pwdService = ctx.getBean("pwdService", ChangePasswordService.class);
+	
+	ctx.close();
+}
+}
